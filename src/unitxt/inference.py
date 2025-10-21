@@ -3047,7 +3047,6 @@ class VLLMInferenceEngine(InferenceEngine, PackageRequirementsMixin, VLLMParamsM
         self.sampling_params = SamplingParams(**args)
         self.llm = LLM(
             model=self.model,
-            device="auto",
             trust_remote_code=True,
             max_num_batched_tokens=4096,
             gpu_memory_utilization=0.7,
