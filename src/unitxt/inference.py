@@ -3053,6 +3053,7 @@ class VLLMInferenceEngine(InferenceEngine, PackageRequirementsMixin, VLLMParamsM
             max_model_len=4096,
             max_num_seqs=64,
             enforce_eager=True,
+            dtype="bfloat16",
         )
 
     def _infer(
