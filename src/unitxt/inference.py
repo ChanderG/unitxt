@@ -3048,9 +3048,9 @@ class VLLMInferenceEngine(InferenceEngine, PackageRequirementsMixin, VLLMParamsM
         self.llm = LLM(
             model=self.model,
             trust_remote_code=True,
-            max_num_batched_tokens=4096,
+            max_num_batched_tokens=32768,
             gpu_memory_utilization=0.7,
-            max_model_len=4096,
+            max_model_len=32768,
             max_num_seqs=64,
             enforce_eager=True,
             dtype="bfloat16",
