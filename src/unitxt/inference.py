@@ -3045,6 +3045,7 @@ class VLLMInferenceEngine(InferenceEngine, PackageRequirementsMixin, VLLMParamsM
         from vllm import LLM, SamplingParams
 
         self.sampling_params = SamplingParams(**args)
+        tp = os.getenv("VLLM_TP_SIZE", 1)
         self.llm = LLM(
             model=self.model,
             trust_remote_code=True,
@@ -3054,6 +3055,7 @@ class VLLMInferenceEngine(InferenceEngine, PackageRequirementsMixin, VLLMParamsM
             max_num_seqs=64,
             enforce_eager=True,
             dtype="bfloat16",
+            tensor_parallel_size=int(tp),
         )
 
     def _infer(
